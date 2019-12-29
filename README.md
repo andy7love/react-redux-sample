@@ -1,3 +1,17 @@
+The purpose of this repository is to learn, try and test some libraries and its features working together.
+
+## Libraries and features to try and test.
+- React
+- Redux
+- React Router using Redux
+- styled-components+themes
+- Material-UI using styled-components
+- Custom-Hooks
+- Jest + Jest-styled-components
+- SSR
+
+# Create React App Readme
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
