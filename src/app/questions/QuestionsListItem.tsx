@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import { Guid } from 'guid-typescript';
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
+import { Theme } from '@material-ui/core/styles';
 
 export interface QuestionListItemProps {
     id: Guid;
@@ -17,12 +18,12 @@ export interface QuestionListItemProps {
     totalAnswers: number;
 }
 
-const StyledCard = styled(Card)`
+const StyledCard = styled(Card)(({ theme }: { theme: Theme }) => `
   margin-bottom: 10px;
   &:hover {
-    box-shadow: 1px 1px 3px 3px rgba(0,0,0,0.25);
+    box-shadow: 1px 1px 3px 3px ${theme.palette.text.secondary};
   }
-`;
+`);
 
 export class QuestionsListItem extends React.PureComponent<QuestionListItemProps> {
     render() {

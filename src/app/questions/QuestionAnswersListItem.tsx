@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Guid } from 'guid-typescript';
-import { Typography } from '@material-ui/core';
+import { Typography, Theme } from '@material-ui/core';
 import styled from 'styled-components';
 
 export interface QuestionAnwsersListItemProps {
@@ -11,12 +11,12 @@ export interface QuestionAnwsersListItemProps {
     answer: string;
 }
 
-const StyledCard = styled(Card)`
+const StyledCard = styled(Card)(({ theme }: { theme: Theme }) => `
   margin: 20px;
   &:hover {
-    box-shadow: 1px 1px 3px 3px rgba(0,0,0,0.25);
+    box-shadow: 1px 1px 3px 3px ${theme.palette.text.secondary};
   }
-`;
+`);
 
 export class QuestionAnswersListItem extends React.PureComponent<QuestionAnwsersListItemProps> {
     render() {

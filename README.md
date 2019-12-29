@@ -3,7 +3,7 @@ The purpose of this repository is to learn, try and test some libraries and its 
 ## Libraries and features to try and test.
 - React
 - Redux
-- React Router using Redux
+- React Router
 - styled-components+themes
 - Material-UI using styled-components
 - Memoized selectors (Reselect)
