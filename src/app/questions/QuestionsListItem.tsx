@@ -7,6 +7,7 @@ import Chip from '@material-ui/core/Chip';
 import styled from 'styled-components';
 import { Guid } from 'guid-typescript';
 import Link from '@material-ui/core/Link';
+import { Link as RouterLink } from 'react-router-dom';
 
 export interface QuestionListItemProps {
     id: Guid;
@@ -14,7 +15,6 @@ export interface QuestionListItemProps {
     question: string;
     author: string;
     totalAnswers: number;
-    onClick: (questionId: Guid) => void;
 }
 
 const StyledCard = styled(Card)`
@@ -25,22 +25,18 @@ const StyledCard = styled(Card)`
 `;
 
 export class QuestionsListItem extends React.PureComponent<QuestionListItemProps> {
-    onClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
-        e.preventDefault();
-        this.props.onClick(this.props.id);
-    }
-
     render() {
+        const url = `/${this.props.id}`;
         return (
             <StyledCard>
                 <CardHeader
                     action={
-                        <Button aria-label="answers" onClick={this.onClick}>
+                        <Button aria-label="answers" component={RouterLink} to={url}>
                             Answers: {this.props.totalAnswers}
                         </Button>
                     }
                     title={
-                        <Link href="#" onClick={this.onClick}>
+                        <Link href="#" component={RouterLink} to={url}>
                             {this.props.question}
                         </Link>
                     }
