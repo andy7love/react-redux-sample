@@ -10,6 +10,7 @@ The purpose of this repository is to learn, try and test some libraries and thei
 - Toggle themes
 - Memoized selectors (Reselect)
 - Custom-Hook (for forms state management)
+- Logging using Redux middleware
 - RxJS for async actions (simulate delay on "server" responses for this).
 - Jest + Jest-styled-components
 
