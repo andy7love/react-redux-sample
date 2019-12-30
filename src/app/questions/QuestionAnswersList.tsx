@@ -6,6 +6,7 @@ export interface AnswerItem {
     id: Guid;
     author: string;
     answer: string;
+    saved: boolean;
 }
 
 export interface QuestionAnswersListProps {
@@ -22,6 +23,7 @@ export class QuestionAnswersList extends React.PureComponent<QuestionAnswersList
                         id={answer.id}
                         answer={answer.answer}
                         author={answer.author}
+                        saving={!answer.saved}
                     />
                 ))}
             </div>

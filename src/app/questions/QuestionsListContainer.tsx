@@ -1,5 +1,5 @@
 import { connect, ConnectedProps } from 'react-redux'
-import { RootState } from '../reducers';
+import { RootState } from '../root.reducer';
 import { selectTagFilteredQuestions } from './duck/selectors';
 import React from 'react';
 import { QuestionsListItem } from './QuestionsListItem';
@@ -37,6 +37,7 @@ class QuestionsList extends React.PureComponent<Props> {
                             author={question.author}
                             question={question.question}
                             tags={question.tags}
+                            saving={!question.saved}
                             totalAnswers={question.answers.length}
                         />
                     ))}

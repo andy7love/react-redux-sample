@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField, Button, ExpansionPanel, ExpansionPanelSummary, Typography, ExpansionPanelDetails, Chip } from '@material-ui/core';
 import styled from 'styled-components';
 import useFormData from '../utils/hooks/useFormData';
-import questionOperations from './duck/operations';
+import questionActions from './duck/actions'
 import { connect, ConnectedProps } from 'react-redux';
 
 export interface QuestionFormData {
@@ -13,7 +13,7 @@ export interface QuestionFormData {
 
 const mapDispatch = {
     onSubmitQuestion: (formData: QuestionFormData) =>
-        questionOperations.addQuestion(formData.tags, formData.question, formData.author)
+        questionActions.addQuestion(formData.tags, formData.question, formData.author)
 };
 
 const connector = connect(

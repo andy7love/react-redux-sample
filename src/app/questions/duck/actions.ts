@@ -17,6 +17,17 @@ function addQuestion(tags: Array<string>, question: string, author: string): Add
         author
     };
 }
+export const ADD_QUESTION_SAVED = 'ADD_QUESTION_SAVED';
+export interface AddQuestionSavedAction {
+    type: typeof ADD_QUESTION_SAVED;
+    questionId: Guid;
+}
+function addQuestionSaved(questionId: Guid): AddQuestionSavedAction {
+    return {
+        type: ADD_QUESTION_SAVED,
+        questionId
+    };
+}
 
 export const ADD_QUESTION_ANSWER = 'ADD_QUESTION_ANSWER';
 export interface AddQuestionAnswerAction {
@@ -35,10 +46,25 @@ function addQuestionAnswer(questionId: Guid, author: string, answer: string): Ad
         answerId: Guid.create()
     };
 }
+export const ADD_QUESTION_ANSWER_SAVED = 'ADD_QUESTION_ANSWER_SAVED';
+export interface AddQuestionAnswerSavedAction {
+    type: typeof ADD_QUESTION_ANSWER_SAVED;
+    questionId: Guid;
+    answerId: Guid;
+}
+function addQuestionAnswerSaved(questionId: Guid, answerId: Guid): AddQuestionAnswerSavedAction {
+    return {
+        type: ADD_QUESTION_ANSWER_SAVED,
+        questionId,
+        answerId
+    };
+}
 
-export type QuestionActions = AddQuestionAction | AddQuestionAnswerAction;
+export type QuestionActions = AddQuestionAction | AddQuestionAnswerAction | AddQuestionSavedAction | AddQuestionAnswerSavedAction;
 
 export default {
     addQuestion,
-    addQuestionAnswer
+    addQuestionSaved,
+    addQuestionAnswer,
+    addQuestionAnswerSaved
 };

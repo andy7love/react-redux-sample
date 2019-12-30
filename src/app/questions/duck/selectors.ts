@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { RootState } from '../../reducers'
+import { RootState } from '../../root.reducer'
 
 export const selectTagFilteredQuestions = createSelector(
     (state: RootState) => state.questions,

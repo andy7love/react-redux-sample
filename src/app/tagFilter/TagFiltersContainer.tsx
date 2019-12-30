@@ -1,7 +1,7 @@
 import { connect, ConnectedProps } from 'react-redux'
-import { RootState } from '../reducers';
+import { RootState } from '../root.reducer';
 import { selectAllAvailableTags } from './duck/selectors';
-import tagFilterOperations from './duck/operations';
+import tagFilterActions from './duck/actions'
 import React from 'react';
 import { TagFiltersItem } from './TagFiltersItem';
 import List from '@material-ui/core/List';
@@ -14,20 +14,9 @@ const mapState = (state: RootState) => ({
 
 const mapDispatch = {
     onTagFilerClick: (tag: string) => (tag === 'All' ?
-        tagFilterOperations.setTagFilter(null) :
-        tagFilterOperations.setTagFilter(tag))
+        tagFilterActions.setTagFilter(null) :
+        tagFilterActions.setTagFilter(tag))
 }
-
-/*
-TODO: remove unnecesary dispatch to props.
-const mapDispatchToProps = dispatch => {
-    return {
-        onTodoClick: id => {
-            dispatch(toggleTodo(id))
-        }
-    }
-}
-*/
 
 const connector = connect(
     mapState,

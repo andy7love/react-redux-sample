@@ -3,15 +3,9 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import App from './app/App';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import rootReducer from './app/reducers';
-import logger from './app/utils/middlewares/logger';
-import crashReporter from './app/utils/middlewares/crashReporter';
+import configureStore from './app/root.store';
 
-const store = createStore(
-    rootReducer,
-    applyMiddleware(logger, crashReporter)
-);
+const store = configureStore();
 
 ReactDOM.render(
     <Provider store={store}>

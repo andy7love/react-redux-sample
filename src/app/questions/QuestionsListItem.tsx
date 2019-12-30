@@ -9,6 +9,7 @@ import { Guid } from 'guid-typescript';
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
 import { Theme } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export interface QuestionListItemProps {
     id: Guid;
@@ -16,6 +17,7 @@ export interface QuestionListItemProps {
     question: string;
     author: string;
     totalAnswers: number;
+    saving: boolean;
 }
 
 const StyledCard = styled(Card)(({ theme }: { theme: Theme }) => `
@@ -27,10 +29,12 @@ const StyledCard = styled(Card)(({ theme }: { theme: Theme }) => `
 
 export class QuestionsListItem extends React.PureComponent<QuestionListItemProps> {
     render() {
+        const saving = (this.props.saving) ? <CircularProgress /> : null;
         const url = `/${this.props.id}`;
         return (
             <StyledCard>
                 <CardHeader
+                    avatar={saving}
                     action={
                         <Button aria-label="answers" component={RouterLink} to={url}>
                             Answers: {this.props.totalAnswers}

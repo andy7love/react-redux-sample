@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { RootState } from '../../reducers'
+import { RootState } from '../../root.reducer'
 import _ from 'lodash';
 
 export interface TagFilter {

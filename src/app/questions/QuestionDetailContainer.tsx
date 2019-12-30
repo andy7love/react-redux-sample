@@ -1,5 +1,5 @@
 import { connect, ConnectedProps } from 'react-redux'
-import { RootState } from '../reducers';
+import { RootState } from '../root.reducer';
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { QuestionDetail } from './QuestionDetail';
@@ -7,7 +7,7 @@ import { QuestionAnswersList } from './QuestionAnswersList';
 import Button from '@material-ui/core/Button';
 import { Link as RouterLink } from 'react-router-dom';
 import QuestionAnswersForm, { AnswerFormData } from './QuestionAnswersForm';
-import questionOperations from './duck/operations';
+import questionActions from './duck/actions';
 
 const mapState = (state: RootState, props: RouteComponentProps<{ id: string }>) => ({
     question: state.questions.find(question => question.id.toString() === props.match.params.id)
@@ -15,7 +15,7 @@ const mapState = (state: RootState, props: RouteComponentProps<{ id: string }>) 
 
 const mapDispatch = {
     onSubmitAnswer: (formData: AnswerFormData) =>
-        questionOperations.addQuestionAnswer(formData.questionId, formData.author, formData.answer)
+        questionActions.addQuestionAnswer(formData.questionId, formData.author, formData.answer)
 };
 
 const connector = connect(

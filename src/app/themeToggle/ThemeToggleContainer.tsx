@@ -1,6 +1,6 @@
 import { connect, ConnectedProps } from 'react-redux'
-import { RootState } from '../reducers';
-import themeToggleOperations from './duck/operations';
+import { RootState } from '../root.reducer';
+import themeToggleActions from './duck/actions'
 import React from 'react';
 import Switch from '@material-ui/core/Switch';
 import { ThemeName } from './duck/reducers';
@@ -11,7 +11,7 @@ const mapState = (state: RootState) => ({
 });
 
 const mapDispatch = {
-    onClickToggle: () => themeToggleOperations.toggleTheme()
+    onClickToggle: () => themeToggleActions.toggleTheme()
 };
 
 const connector = connect(

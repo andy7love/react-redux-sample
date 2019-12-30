@@ -5,7 +5,7 @@ import QuestionsListContainer from './questions/QuestionsListContainer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import QuestionDetailContainer from './questions/QuestionDetailContainer';
 import { ThemeProvider as MUIThemeProvider } from '@material-ui/core/styles';
-import { RootState } from './reducers';
+import { RootState } from './root.reducer';
 import { selectCurrentTheme } from './themeToggle/duck/selectors';
 import { connect, ConnectedProps } from 'react-redux';
 import { Header } from './Header';
