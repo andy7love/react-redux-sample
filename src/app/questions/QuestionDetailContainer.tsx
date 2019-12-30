@@ -26,7 +26,7 @@ const connector = connect(
 type PropsFromRedux = ConnectedProps<typeof connector>
 type Props = PropsFromRedux;
 
-class QuestionsList extends React.PureComponent<Props> {
+class QuestionDetailContainer extends React.PureComponent<Props> {
     render() {
         if (!this.props.question) {
             return <p>Question not found.</p>
@@ -57,4 +57,4 @@ class QuestionsList extends React.PureComponent<Props> {
         );
     }
 }
-export default connector(QuestionsList);
+export default connector(QuestionDetailContainer);

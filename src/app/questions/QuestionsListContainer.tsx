@@ -5,6 +5,7 @@ import React from 'react';
 import { QuestionsListItem } from './QuestionsListItem';
 import Grid from '@material-ui/core/Grid';
 import TagFiltersContainer from '../tagFilter/TagFiltersContainer';
+import QuestionFormContainer from './QuestionFormContainer';
 
 const mapState = (state: RootState) => ({
     questions: selectTagFilteredQuestions(state)
@@ -39,6 +40,8 @@ class QuestionsList extends React.PureComponent<Props> {
                             totalAnswers={question.answers.length}
                         />
                     ))}
+
+                    <QuestionFormContainer />
                 </Grid>
             </Grid>
         );
