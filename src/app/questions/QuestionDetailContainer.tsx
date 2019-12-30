@@ -6,13 +6,21 @@ import { QuestionDetail } from './QuestionDetail';
 import { QuestionAnswersList } from './QuestionAnswersList';
 import Button from '@material-ui/core/Button';
 import { Link as RouterLink } from 'react-router-dom';
+import QuestionAnswersForm, { AnswerFormData } from './QuestionAnswersForm';
+import questionOperations from './duck/operations';
 
 const mapState = (state: RootState, props: RouteComponentProps<{ id: string }>) => ({
     question: state.questions.find(question => question.id.toString() === props.match.params.id)
 });
 
+const mapDispatch = {
+    onSubmitAnswer: (formData: AnswerFormData) =>
+        questionOperations.addQuestionAnswer(formData.questionId, formData.author, formData.answer)
+};
+
 const connector = connect(
-    mapState
+    mapState,
+    mapDispatch
 );
 
 type PropsFromRedux = ConnectedProps<typeof connector>
@@ -35,6 +43,11 @@ class QuestionsList extends React.PureComponent<Props> {
 
                 <QuestionAnswersList
                     answers={this.props.question.answers}
+                />
+
+                <QuestionAnswersForm
+                    questionId={this.props.question.id}
+                    onSubmitAnswer={this.props.onSubmitAnswer}
                 />
 
                 <Button aria-label="answers" component={RouterLink} to="/">

@@ -1,14 +1,16 @@
 The purpose of this repository is to learn, try and test some libraries and its features working together.
 
-## Libraries and features to try and test.
+## Libraries and features tried and tested.
 - React
 - Redux
 - React Router
-- styled-components+themes
-- Material-UI using styled-components
+- styled-components
+- Material-UI
+- Use shared themes between styled-components and Material-UI.
+- Toggle themes
 - Memoized selectors (Reselect)
-- Async actions (simulate delay on "server" responses for this).
-- Custom-Hooks
+- RxJS for async actions (simulate delay on "server" responses for this).
+- Custom-Hook for form state management
 - Jest + Jest-styled-components
 
 Scalable folder and component architecture structure was inspired by [this article](https://levelup.gitconnected.com/structure-your-react-redux-project-for-scalability-and-maintainability-618ad82e32b7) and [this other](https://www.freecodecamp.org/news/scaling-your-redux-app-with-ducks-6115955638be/).
